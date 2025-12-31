@@ -205,3 +205,17 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ReportPilot - Project Specific
+# Generated reports and outputs
+data/output/*.xlsx
+data/output/*.pdf
+
+# Log files
+logs/
+*.log
+
+# Keep example files and sample data
+!config/.env.example
+!config/config.yaml.example
+!data/input/sample_data.csv

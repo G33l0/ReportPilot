@@ -1,0 +1,92 @@
+# Activity Reporting System Configuration
+# This is the working configuration file
+
+# Data Sources Configuration
+data_sources:
+  # CSV File (enabled by default with sample data)
+  - type: csv
+    enabled: true
+    required: true
+    path: data/input/sample_data.csv
+    encoding: utf-8
+    delimiter: ','
+
+# Data Cleaning Configuration
+cleaning:
+  drop_duplicates: true
+  drop_empty_rows: true
+  standardize_strings: true
+  fill_missing: forward
+  remove_outliers: false
+
+  required_columns:
+    - date
+    - activity
+    - value
+
+  date_columns:
+    - date
+
+  numeric_columns:
+    - value
+    - count
+    - duration
+
+# Summarization Configuration
+summarization:
+  date_column: date
+
+  group_by:
+    - activity
+    - category
+
+  metrics:
+    value:
+      - sum
+      - mean
+    count:
+      - sum
+    duration:
+      - sum
+      - mean
+
+  include_trends: true
+  include_percentages: true
+
+# Report Generation Configuration
+reports:
+  excel:
+    enabled: true
+    title: Weekly Activity Report
+    include_charts: true
+    freeze_panes: true
+
+  pdf:
+    enabled: true
+    title: Weekly Activity Report
+    page_size: letter
+    max_rows_per_table: 30
+
+# Output Configuration
+output:
+  directory: data/output
+
+# Email Delivery Configuration (disabled by default)
+email:
+  enabled: false
+  recipients: []
+  subject: "Weekly Activity Report"
+  use_tls: true
+
+# Slack Delivery Configuration (disabled by default)
+slack:
+  enabled: false
+  default_channel: '#reports'
+
+# Scheduler Configuration
+schedule:
+  type: cron
+  cron:
+    day_of_week: mon
+    hour: 9
+    minute: 0

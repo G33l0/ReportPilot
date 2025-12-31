@@ -1,0 +1,136 @@
+# Activity Reporting System Configuration
+# Copy this file to config.yaml and customize for your needs
+
+# Data Sources Configuration
+# Add multiple sources - they will be combined automatically
+data_sources:
+  # CSV File Example
+  - type: csv
+    enabled: true
+    required: false  # Set to true if this source must succeed
+    path: data/input/sample_data.csv
+    encoding: utf-8
+    delimiter: ','
+
+  # Excel File Example
+  - type: excel
+    enabled: false
+    path: data/input/activities.xlsx
+    sheet_name: 0  # Can be sheet index or name
+    skip_rows: 0
+
+  # Folder Example (reads all matching files)
+  - type: folder
+    enabled: false
+    path: data/input/daily/
+    pattern: '*.csv'  # File pattern to match
+    recursive: false  # Search subdirectories
+
+  # API Example
+  - type: api
+    enabled: false
+    url: https://api.example.com/activities
+    method: GET
+    auth_type: bearer  # Options: bearer, basic, api_key, null
+    auth_token: ${REPORTPILOT_API_TOKEN}  # Reference env variable
+    data_path: data  # JSON path to data array
+    timeout: 30
+
+# Data Cleaning Configuration
+cleaning:
+  drop_duplicates: true
+  drop_empty_rows: true
+  standardize_strings: true
+  fill_missing: forward  # Options: drop, forward, backward, mean, zero
+  remove_outliers: false
+
+  # Specify required columns
+  required_columns:
+    - date
+    - activity
+    - value
+
+  # Specify date columns for parsing
+  date_columns:
+    - date
+
+  # Specify numeric columns
+  numeric_columns:
+    - value
+    - count
+    - duration
+
+# Summarization Configuration
+summarization:
+  date_column: date  # Column containing dates
+
+  # Group by categories
+  group_by:
+    - activity
+    - category
+
+  # Metrics to calculate
+  metrics:
+    value:
+      - sum
+      - mean
+    count:
+      - sum
+    duration:
+      - sum
+      - mean
+
+  include_trends: true
+  include_percentages: true
+
+# Report Generation Configuration
+reports:
+  excel:
+    enabled: true
+    title: Weekly Activity Report
+    include_charts: true
+    freeze_panes: true
+
+  pdf:
+    enabled: true
+    title: Weekly Activity Report
+    page_size: letter  # Options: letter, a4
+    max_rows_per_table: 30
+
+# Output Configuration
+output:
+  directory: data/output
+
+# Email Delivery Configuration
+email:
+  enabled: false  # Set to true to enable email delivery
+  recipients:
+    - recipient1@example.com
+    - recipient2@example.com
+  subject: "Weekly Activity Report - {date}"
+  use_tls: true
+  use_ssl: false
+
+# Slack Delivery Configuration
+slack:
+  enabled: false  # Set to true to enable Slack delivery
+  default_channel: '#reports'
+  channel: '#reports'  # Can override default
+
+# Scheduler Configuration
+schedule:
+  # Schedule type: 'cron' or 'interval'
+  type: cron
+
+  # Cron schedule (when type is 'cron')
+  cron:
+    day_of_week: mon  # mon, tue, wed, thu, fri, sat, sun, or combinations
+    hour: 9
+    minute: 0
+
+  # Interval schedule (when type is 'interval')
+  interval:
+    weeks: 1
+    days: 0
+    hours: 0
+    minutes: 0
