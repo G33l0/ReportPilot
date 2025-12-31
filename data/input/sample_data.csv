@@ -1,0 +1,41 @@
+date,activity,category,value,count,duration,user,status
+2025-01-01,Code Review,Development,5,3,120,Alice,Completed
+2025-01-01,Bug Fix,Development,8,2,180,Bob,Completed
+2025-01-01,Meeting,Management,3,1,60,Alice,Completed
+2025-01-02,Feature Development,Development,13,5,300,Charlie,Completed
+2025-01-02,Documentation,Documentation,5,2,90,Alice,Completed
+2025-01-02,Code Review,Development,8,4,150,Bob,Completed
+2025-01-03,Testing,QA,10,6,200,David,Completed
+2025-01-03,Bug Fix,Development,5,1,75,Charlie,Completed
+2025-01-03,Meeting,Management,2,1,45,Alice,Completed
+2025-01-04,Feature Development,Development,21,8,420,Bob,Completed
+2025-01-04,Code Review,Development,7,3,105,Charlie,Completed
+2025-01-05,Testing,QA,12,5,180,David,Completed
+2025-01-05,Documentation,Documentation,8,3,120,Alice,Completed
+2025-01-06,Feature Development,Development,15,6,280,Charlie,In Progress
+2025-01-06,Bug Fix,Development,6,2,90,Bob,Completed
+2025-01-07,Code Review,Development,9,4,135,Alice,Completed
+2025-01-07,Testing,QA,11,5,165,David,Completed
+2025-01-08,Meeting,Management,4,2,90,Alice,Completed
+2025-01-08,Feature Development,Development,18,7,350,Bob,Completed
+2025-01-08,Documentation,Documentation,6,2,80,Charlie,Completed
+2025-01-09,Bug Fix,Development,7,2,105,David,Completed
+2025-01-09,Code Review,Development,10,5,180,Alice,Completed
+2025-01-10,Testing,QA,13,6,200,David,Completed
+2025-01-10,Feature Development,Development,20,8,400,Charlie,In Progress
+2025-01-11,Meeting,Management,3,1,60,Alice,Completed
+2025-01-11,Code Review,Development,8,3,120,Bob,Completed
+2025-01-12,Bug Fix,Development,9,3,135,Charlie,Completed
+2025-01-12,Documentation,Documentation,7,3,105,Alice,Completed
+2025-01-13,Feature Development,Development,16,6,300,Bob,Completed
+2025-01-13,Testing,QA,14,7,210,David,Completed
+2025-01-14,Code Review,Development,11,5,165,Alice,Completed
+2025-01-14,Bug Fix,Development,8,2,95,Charlie,Completed
+2025-01-15,Meeting,Management,5,2,105,Alice,Completed
+2025-01-15,Feature Development,Development,19,7,380,Bob,In Progress
+2025-01-15,Testing,QA,15,8,240,David,Completed
+2025-01-16,Documentation,Documentation,9,4,140,Alice,Completed
+2025-01-16,Code Review,Development,12,6,200,Charlie,Completed
+2025-01-17,Bug Fix,Development,10,3,150,Bob,Completed
+2025-01-17,Testing,QA,16,8,250,David,Completed
+2025-01-18,Feature Development,Development,22,9,450,Charlie,In Progress
